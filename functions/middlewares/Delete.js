@@ -1,12 +1,13 @@
 const admin = require("firebase-admin");
 // const CONST =  require('../assets/CONST.json')
+const authenticateToken = require('./AuthenticateToken')
 
 const express = require("express");
 
 const app = express();
 const db = admin.firestore();
 
-module.exports = app.delete('/api/:database/delete/:id', (req, res)=>{
+module.exports = app.delete('/api/:database/delete/:id',authenticateToken, (req, res)=>{
     (async ()=>{
         try {
             const document = db.collection(req.params.database).doc(req.params.id)

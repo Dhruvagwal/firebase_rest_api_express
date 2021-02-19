@@ -1,12 +1,13 @@
 const admin = require("firebase-admin");
 // const CONST =  require('../assets/CONST.json')
+const authenticateToken = require('./AuthenticateToken')
 
 const express = require("express");
 
 const app = express();
 const db = admin.firestore();
 
-module.exports = app.get('/api/:database/read/:id', (req, res)=>{
+module.exports = app.get('/api/:database/read/:id', authenticateToken,(req, res)=>{
     (async ()=>{
         try {
             const documents = db.collection(req.params.database).doc(req.params.id);
