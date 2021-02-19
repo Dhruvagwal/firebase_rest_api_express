@@ -36,6 +36,9 @@ const Update = require('./middlewares/Update')
 app.use(Update)
 
 
+//find by params
+const QuerySearch = require('./middlewares/QuerySearch')
+app.use(QuerySearch)
 
 
 //Delete
