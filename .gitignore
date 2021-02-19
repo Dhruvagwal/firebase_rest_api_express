@@ -47,9 +47,7 @@ build/Release
 # Dependency directories
 node_modules/
 
-
-#private key
-./functions/path/
+functions
 
 # Optional npm cache directory
 .npm
