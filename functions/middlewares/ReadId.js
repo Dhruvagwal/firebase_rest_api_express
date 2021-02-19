@@ -6,10 +6,10 @@ const express = require("express");
 const app = express();
 const db = admin.firestore();
 
-module.exports = app.get('/api/read/:id', (req, res)=>{
+module.exports = app.get('/api/:database/read/:id', (req, res)=>{
     (async ()=>{
         try {
-            const documents = db.collection(CONST.DBNAME).doc(req.params.id);
+            const documents = db.collection(req.params.database).doc(req.params.id);
 
             let products = await documents.get();
 

@@ -6,11 +6,11 @@ const express = require("express");
 const app = express();
 const db = admin.firestore();
 
-module.exports = app.get('/api/search/:value/:query', (req, res)=>{
+module.exports = app.get('/api/:database/search/:value/:query', (req, res)=>{
     (async ()=>{
         try {
 
-            let query = db.collection(CONST.DBNAME).where(req.params.value,"==",req.params.query);
+            let query = db.collection(req.params.database).where(req.params.value,"==",req.params.query);
             let response = [];
 
             await query.get().then(querySnapshot => {

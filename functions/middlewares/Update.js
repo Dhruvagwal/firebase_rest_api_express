@@ -6,10 +6,10 @@ const express = require("express");
 const app = express();
 const db = admin.firestore();
 
-module.exports = app.put('/api/update/:id', (req, res)=>{
+module.exports = app.put('/api/:database/update/:id', (req, res)=>{
     (async ()=>{
         try {
-            const document = db.collection(CONST.DBNAME).doc(req.params.id)
+            const document = db.collection(req.params.database).doc(req.params.id)
             await document.update({
                 name : req.body.name,
                 description: req.body.description,

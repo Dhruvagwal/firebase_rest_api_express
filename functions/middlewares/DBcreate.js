@@ -6,10 +6,10 @@ const app = express();
 
 const db = admin.firestore();
 
-module.exports = app.post('/api/create', (req, res)=>{
+module.exports = app.post('/api/:database/create', (req, res)=>{
     (async ()=>{
         try {
-            await db.collection(CONST.DBNAME).doc('/' + req.body.id + '/')
+            await db.collection(req.params.database).doc('/' + req.body.id + '/')
                 .create({
                     name : req.body.name,
                     description: req.body.description,
