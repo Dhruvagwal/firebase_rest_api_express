@@ -3,7 +3,7 @@ require("firebase/auth");
 
 const apiKey = process.env.FIREBASE_API_KEY;
 
-const fb = firebase.initializeApp(require('../path/to/firbase.json'));
+const fb = firebase.initializeApp(require('../../path/to/firbase.json'));
 
 exports.addUser = (email, password) =>
   fb.auth().createUserWithEmailAndPassword(email, password);
