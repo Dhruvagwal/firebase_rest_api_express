@@ -49,7 +49,7 @@ node_modules/
 
 
 #private key
-functions/path/
+./functions/path/
 
 # Optional npm cache directory
 .npm
