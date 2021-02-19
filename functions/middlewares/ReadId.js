@@ -1,5 +1,5 @@
 const admin = require("firebase-admin");
-const CONST =  require('../assets/CONST.json')
+// const CONST =  require('../assets/CONST.json')
 
 const express = require("express");
 
