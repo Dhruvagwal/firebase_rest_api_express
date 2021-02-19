@@ -1,8 +1,19 @@
 const functions = require("firebase-functions");
 const admin = require("firebase-admin");
+
+var serviceAccount = require("./path/to/serviceAccountKey.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+
 const express = require("express");
-const cors = require("cors");
 const app = express();
+
+
+const cors = require("cors");
+app.use(cors({origin: true}));
 
 
 //Routes
