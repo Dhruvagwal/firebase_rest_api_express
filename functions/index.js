@@ -13,45 +13,35 @@ const app = express();
 const cors = require("cors");
 app.use(cors({origin: true}));
 
-
-
-//SignUp
-const SignUp = require('./middlewares/SignUp')
-app.use(SignUp)
-
-//Login
-const Login = require('./middlewares/Login')
-app.use(Login)
-
 //create database Api
-const DBcreate = require('./middlewares/DBcreate')
+const DBcreate = require('./Routes/DBcreate')
 app.use(DBcreate)
 
 
 //read a Specific based on product id
 //Get
-const ReadId = require('./middlewares/ReadId')
+const ReadId = require('./Routes/ReadId')
 app.use(ReadId)
 
 //read all products
 //Get
-const ReadAll = require('./middlewares/ReadAll')
+const ReadAll = require('./Routes/ReadAll')
 app.use(ReadAll)
 
 
 //update
 //put
-const Update = require('./middlewares/Update')
+const Update = require('./Routes/Update')
 app.use(Update)
 
 
 //find by params
-const QuerySearch = require('./middlewares/QuerySearch')
+const QuerySearch = require('./Routes/QuerySearch')
 app.use(QuerySearch)
 
 
 //Delete
-const Delete = require('./middlewares/Delete')
+const Delete = require('./Routes/Delete')
 app.use(Delete)
 
 
