@@ -6,11 +6,11 @@ const express = require("express");
 const app = express();
 const db = admin.firestore();
 
-module.exports = app.get('/api/:database/search/:value/:query',(req, res)=>{
+module.exports = app.post('/api/:database/search/',(req, res)=>{
     (async ()=>{
         try {
 
-            let query = db.collection(req.params.database).where(req.params.value,"==",req.params.query);
+            let query = db.collection(req.params.database).where(req.body.value,"==",req.body.query);
             let response = [];
 
             await query.get().then(querySnapshot => {
@@ -22,6 +22,7 @@ module.exports = app.get('/api/:database/search/:value/:query',(req, res)=>{
                         name: doc.data().name,
                         description: doc.data().description,
                         price: doc.data().price,
+                        Category : req.body.Category
                     }
                     response.push(selectedItem)
                 }

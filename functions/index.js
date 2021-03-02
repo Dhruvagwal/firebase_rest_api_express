@@ -5,6 +5,8 @@ var serviceAccount = require("./path/to/serviceAccountKey.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount)
 });
+
+
 //-----------Express Code----------------//
 const express = require("express");
 const app = express();

@@ -12,7 +12,9 @@ module.exports = app.put('/api/:database/update/:id',(req, res)=>{
             await document.update({
                 name : req.body.name,
                 description: req.body.description,
-                price : req.body.price
+                price : req.body.price,
+                Category : req.body.Category
+
             })
             return res.status(200).send('SUCESS!')
         }catch(err){
