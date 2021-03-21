@@ -17,12 +17,7 @@ module.exports = app.get('/api/:database/read', (req, res)=>{
                 let docs = querySnapshot.docs; //the results of the query
 
                 for (let doc of docs){
-                    const selectedItem = {
-                        id: doc.id,
-                        name: doc.data().name,
-                        description: doc.data().description,
-                        price: doc.data().price,
-                    }
+                    const selectedItem = doc.data()
                     response.push(selectedItem)
                 }
                 return response;

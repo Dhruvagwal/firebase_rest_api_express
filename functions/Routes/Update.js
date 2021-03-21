@@ -9,13 +9,7 @@ module.exports = app.put('/api/:database/update/:id',(req, res)=>{
     (async ()=>{
         try {
             const document = db.collection(req.params.database).doc(req.params.id)
-            await document.update({
-                name : req.body.name,
-                description: req.body.description,
-                price : req.body.price,
-                Category : req.body.Category
-
-            })
+            await document.update(req.body)
             return res.status(200).send('SUCESS!')
         }catch(err){
             console.log(err)

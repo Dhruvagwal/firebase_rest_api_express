@@ -19,6 +19,9 @@ const DBcreate = require('./Routes/DBcreate')
 app.use(DBcreate)
 
 
+
+app.use(require('./Routes/Auth/AuthRoutes'))
+
 //read a Specific based on product id
 //Get
 const ReadId = require('./Routes/ReadId')
