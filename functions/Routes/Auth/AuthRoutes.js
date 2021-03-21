@@ -40,7 +40,7 @@ app.post('/verifyToken', (req, res) =>{
         if(err){
             return res.status(401).send({err:"You must be Logged in."})
         }
-        res.status(200).send("sucess")
+        res.status(200).send("sucess", payload)
     })
 })
 
